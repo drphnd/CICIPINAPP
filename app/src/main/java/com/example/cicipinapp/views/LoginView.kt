@@ -53,20 +53,10 @@ import com.example.cicipinapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterView(){
+fun LoginView(){
     var text by remember { mutableStateOf("") }
-    var textUsername by remember { mutableStateOf("") }
     var textEmail by remember { mutableStateOf("") }
-    var profileImageUri by remember { mutableStateOf<Uri?>(null) }
     var passwordVisible by remember { mutableStateOf(false) }
-    var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
-
-    // Launcher untuk memilih foto dari galeri
-    val launcher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.GetContent()
-    ) { uri: Uri? ->
-        selectedImageUri = uri
-    }
 
     Column(
         modifier = Modifier
@@ -86,76 +76,11 @@ fun RegisterView(){
                     .size(150.dp)
             )
 
+            Spacer(modifier = Modifier.height(16.dp))
             Column(
                 modifier = Modifier
                     .padding(16.dp),
             ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(120.dp)
-                            .clip(CircleShape)
-                            .background(Color.LightGray)
-                            .clickable { launcher.launch("image/*") },
-                        contentAlignment = Alignment.Center
-                    ) {
-                        if (selectedImageUri != null) {
-                            Image(
-                                painter = painterResource(R.drawable.baseline_upload_file_24),
-                                contentDescription = "Selected Image",
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier.fillMaxSize()
-                            )
-                        } else {
-                            Icon(
-                                imageVector = Icons.Default.AddCircle,
-                                contentDescription = "Upload Icon",
-                                tint = Color.White,
-                                modifier = Modifier.size(40.dp)
-                            )
-                        }
-                    }
-
-                    // Tombol Unggah
-                    Button(
-                        onClick = { launcher.launch("image/*") },
-                        modifier = Modifier
-                            .padding(top = 16.dp)
-                            .fillMaxWidth(0.5f),
-                        shape = RoundedCornerShape(16.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.Gray, // Warna background tombol
-                            contentColor = Color.White  // Warna teks pada tombol
-                        )
-                    ) {
-                        Text(text = "Pilih Foto")
-                    }
-
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                TextField(
-                    value = textUsername,
-                    onValueChange = { textUsername = it },
-                    label = { Text("Enter username ") },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp)
-                        .background(Color.White, shape = RoundedCornerShape(8.dp))
-                        .border(1.dp, Color.Red, shape = RoundedCornerShape(18.dp)),
-
-                    colors = TextFieldDefaults.textFieldColors(
-                        containerColor = Color.Transparent, // Menghilangkan warna default dari TextField
-                        unfocusedIndicatorColor = Color.Transparent, // Menghilangkan garis hitam saat tidak fokus
-                        focusedIndicatorColor = Color.Transparent // Menghilangkan garis hitam saat fokus
-                    )
-                )
-                Spacer(modifier = Modifier.height(16.dp))
                 TextField(
                     value = textEmail,
                     onValueChange = { textEmail = it },
@@ -227,7 +152,7 @@ fun RegisterView(){
                 .padding(bottom = 48.dp), // Memberikan ruang untuk teks di bawah
         ) {
             Text(
-                text = "Already have an account? Login",
+                text = "Didn't have any account? Sign in",
                 textAlign = TextAlign.Center,
                 color = Color.Gray,
                 fontSize = 14.sp
@@ -242,6 +167,6 @@ fun RegisterView(){
 
 @Preview(showBackground = true)
 @Composable
-private fun RegisterPreview(){
-    RegisterView()
+private fun LoginPreview(){
+    LoginView()
 }
