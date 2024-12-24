@@ -3,7 +3,7 @@ package com.example.cicipinapp.views
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -89,6 +90,66 @@ fun RestaurantView() {
                 .padding(innerPadding)
         ) {
 //            Masukkin Random Resto Card disini
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+//                onClick = onCardClick,
+                colors = CardDefaults.cardColors(
+                    containerColor = Color.White)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(12.dp)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(125.dp)
+                            .clip(RoundedCornerShape(16.dp))
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.restoimage),
+                            contentDescription = null,
+                            modifier = Modifier.size(470.dp),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Column(modifier = Modifier.padding(top = 8.dp)) {
+                        Text(
+                            text = "restaurant.name",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Image(
+                                painter = painterResource(id = R.drawable.baseline_star_24),
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+//                            Text(text = "${restaurant.rating}", fontSize = 16.sp)
+                        }
+                        Spacer(modifier = Modifier.height(4.dp))
+//                        Text(text = "restaurant.location", fontSize = 14.sp)
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Row {
+//                            Text(
+//                                text = "${restaurant.distance} km ",
+//                                fontSize = 14.sp,
+//                                fontWeight = FontWeight.Bold
+//                            )
+                            Text(
+                                text = "from your location",
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 }
