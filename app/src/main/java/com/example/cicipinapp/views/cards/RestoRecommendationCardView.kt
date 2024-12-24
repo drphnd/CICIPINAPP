@@ -31,10 +31,7 @@ import com.example.cicipinapp.R
 @Composable
 fun RestoRecommendationCardView(){
     Card(
-        shape = RoundedCornerShape(8.dp),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
+
     ) {
         Column(
             modifier = Modifier
