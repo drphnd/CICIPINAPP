@@ -74,7 +74,6 @@ fun HomeView() {
             }
         }
     ) { innerPadding ->
-        // Content area
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -102,7 +101,7 @@ fun HomeView() {
                         )
                         Spacer(modifier = Modifier.width(5.dp))
                         Text(
-                            "drphnd !",
+                            "Kenloy !",
                             color = Color(0xFFFFB700),
                             fontWeight = FontWeight.Bold,
                             fontSize = 35.sp
@@ -151,13 +150,43 @@ fun HomeView() {
                     ),
                     singleLine = true // Membatasi hanya satu baris
                 )
+
+//                FUSIONS
+
+                Row(
+                    modifier = Modifier
+                        .padding(13.dp)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween // Mengatur teks kiri dan kanan
+                ) {
+                    Text(
+                        "Recommendation",
+                        color = Color.DarkGray,
+                        fontSize = 15.sp
+                    )
+                    Text(
+                        "See all >",
+                        color = Color.DarkGray,
+                        fontSize = 15.sp
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+//                Taruh Resto Card Recommendation disini
+
+
+
+
+
             }
 
             // Content for Fusion Foods or additional content here
 
 
             Spacer(modifier = Modifier.height(16.dp))
-            
+
+
         }
     }
 }
