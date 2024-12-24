@@ -28,7 +28,7 @@ import com.example.cicipinapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeView() {
+fun Home() {
     var searchText by remember { mutableStateOf("") }
     var selectedTab by remember { mutableStateOf("Home") }
     val items = listOf("Home", "Wishlist", "Find Resto", "Review")
@@ -101,7 +101,7 @@ fun HomeView() {
                         )
                         Spacer(modifier = Modifier.width(5.dp))
                         Text(
-                            "drphnd !",
+                            "Kenloy !",
                             color = Color(0xFFFFB700),
                             fontWeight = FontWeight.Bold,
                             fontSize = 35.sp
@@ -194,5 +194,5 @@ fun HomeView() {
 @Preview(showBackground = true)
 @Composable
 private fun WelcomePreview() {
-    HomeView()
+    Home()
 }
