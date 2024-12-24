@@ -118,6 +118,7 @@ fun RestoDetailMenu() {
             //buat menu resto disini
             LazyColumn(
                 modifier = Modifier
+                    .offset(y = -100.dp)
                     .padding(start = 16.dp, end = 16.dp)
                     .fillMaxSize()
             ) {
