@@ -193,6 +193,6 @@ fun HomeView() {
 
 @Preview(showBackground = true)
 @Composable
-private fun WelcomePreview() {
+private fun HomePreview() {
     HomeView()
 }

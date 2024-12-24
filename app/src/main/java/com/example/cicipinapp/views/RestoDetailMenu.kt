@@ -115,10 +115,10 @@ fun RestoDetailMenu() {
                 }
             }
 
-            // Adjusted the top padding here from 300.dp to 16.dp
+            //buat menu resto disini
             LazyColumn(
                 modifier = Modifier
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                    .padding(start = 16.dp, end = 16.dp)
                     .fillMaxSize()
             ) {
                 item {
@@ -172,6 +172,7 @@ fun RestoDetailMenu() {
     }
 }
 
+//ini template card setiap menu
 @Composable
 fun MenuItemCard(title: String, description: String, imageRes: Int) {
     Row(
