@@ -2,6 +2,7 @@ package com.example.cicipinapp.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -35,32 +36,37 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cicipinapp.R
-import kotlin.math.round
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RestoDetailMenu() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White),
+                .padding(top = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(painter = painterResource(id=R.drawable.restoimage),
+            Image(
+                painter = painterResource(id = R.drawable.restoimage),
                 contentDescription = null,
                 modifier = Modifier
                     .offset(y = -60.dp)
                     .clip(RoundedCornerShape(25.dp))
                     .fillMaxWidth(),
                 contentScale = ContentScale.Crop
-                )
+            )
             Card(
                 modifier = Modifier
                     .offset(y = -125.dp)
                     .padding(start = 20.dp, end = 20.dp)
                     .shadow(8.dp, RoundedCornerShape(16.dp)),
                 colors = CardDefaults.cardColors(containerColor = Color.White)
-            ){
+            ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     // Nama dan Rating Restoran
                     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -80,8 +86,7 @@ fun RestoDetailMenu() {
                         ) {
                             Text(
                                 text = "4★",
-                                modifier = Modifier
-                                    .padding(8.dp),
+                                modifier = Modifier.padding(8.dp),
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 14.sp,
                                 color = Color.White
@@ -109,50 +114,51 @@ fun RestoDetailMenu() {
                     )
                 }
             }
-        }
-    //ini yang dibawah buat menunya(isi itemnnya)
-        LazyColumn(
-            modifier = Modifier
-                .padding(top = 300.dp, start = 16.dp, end = 16.dp, bottom = 60.dp)
-                .fillMaxSize()
-        ){
-            item {
-                Text(
-                    text = "Food",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(bottom = 8.dp)
-                )
-            }
-            items(3) {
-                MenuItemCard(
-                    title = "Bubur Ayam Jakarta",
-                    description = "hidangan khas Indonesia yang terdiri dari bubur nasi...",
-                    imageRes = R.drawable.cicipinlogo // Ganti dengan gambar menu Anda
-                )
-            }
-            item {
-                Text(
-                    text = "Drink",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
-            }
-            items(2) {
-                MenuItemCard(
-                    title = "Fruit Juice",
-                    description = "minuman yang terbuat dari buah-buahan atau sayuran segar...",
-                    imageRes = R.drawable.restoimage // Ganti dengan gambar minuman Anda
-                )
+
+            // Adjusted the top padding here from 300.dp to 16.dp
+            LazyColumn(
+                modifier = Modifier
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                    .fillMaxSize()
+            ) {
+                item {
+                    Text(
+                        text = "Food",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                }
+                items(3) {
+                    MenuItemCard(
+                        title = "Bubur Ayam Jakarta",
+                        description = "hidangan khas Indonesia yang terdiri dari bubur nasi...",
+                        imageRes = R.drawable.cicipinlogo
+                    )
+                }
+                item {
+                    Text(
+                        text = "Drink",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(vertical = 8.dp)
+                    )
+                }
+                items(2) {
+                    MenuItemCard(
+                        title = "Fruit Juice",
+                        description = "minuman yang terbuat dari buah-buahan atau sayuran segar...",
+                        imageRes = R.drawable.restoimage
+                    )
+                }
             }
         }
 
-        // Tombol di Bagian Bawah
         Button(
             onClick = { /* TODO: Aksi Navigasi */ },
             modifier = Modifier
-                .padding(16.dp)
+                .align(Alignment.BottomCenter)
+                .padding(10.dp)
                 .fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
         ) {
@@ -162,9 +168,10 @@ fun RestoDetailMenu() {
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )
+        }
     }
 }
-//ini buat card menu nya
+
 @Composable
 fun MenuItemCard(title: String, description: String, imageRes: Int) {
     Row(
@@ -172,7 +179,6 @@ fun MenuItemCard(title: String, description: String, imageRes: Int) {
             .fillMaxWidth()
             .padding(vertical = 8.dp)
     ) {
-        // Gambar Menu
         Image(
             painter = painterResource(id = imageRes),
             contentDescription = null,
@@ -190,10 +196,8 @@ fun MenuItemCard(title: String, description: String, imageRes: Int) {
     }
 }
 
-
-
 @Preview(showBackground = true)
 @Composable
-private fun RestoDetailPreview(){
+private fun RestoDetailPreview() {
     RestoDetailMenu()
 }
