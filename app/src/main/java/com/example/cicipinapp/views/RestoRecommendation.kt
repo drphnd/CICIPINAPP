@@ -32,10 +32,12 @@ fun RestoRecommendationView() {
     Scaffold(
         topBar = {
             Row(
+                verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(Color.White)
-                    .padding(19.dp)
+                    .padding(19.dp),
+
             ) {
                 Image(
                     painter = painterResource(R.drawable.baseline_arrow_back_ios_24),
