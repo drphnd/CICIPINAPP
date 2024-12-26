@@ -52,7 +52,7 @@ import com.example.cicipinapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginView(){
+fun login(){
     var text by remember { mutableStateOf("") }
     var textUsername by remember { mutableStateOf("") }
     var textEmail by remember { mutableStateOf("") }
@@ -176,5 +176,5 @@ fun LoginView(){
 @Preview(showBackground = true)
 @Composable
 private fun RegisterPreview(){
-    LoginView()
+    login()
 }
