@@ -42,7 +42,7 @@ fun SettingView() {
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
-                    text = "Setting",
+                    text = "Profile Setting",
                     color = Color.Black,
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold
@@ -75,7 +75,7 @@ fun SettingView() {
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "user123123",
+                    text = "drphnd",
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black
