@@ -29,16 +29,6 @@ import com.example.cicipinapp.views.cards.ReviewCard
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReviewView() {
-    var selectedTab by remember { mutableStateOf("Review") }
-    val items = listOf("Home", "Wishlist", "Find Resto", "Review")
-    val icons = listOf(
-        Icons.Filled.Home,    // Ikon untuk Home
-        Icons.Filled.Star,    // Ikon untuk Wishlist
-        Icons.Filled.Place,   // Ikon untuk Find Resto
-        Icons.Filled.List     // Ikon untuk Review
-    )
-    val activeColor = Color(0xFFFFC107) // Warna kuning untuk item aktif
-    val inactiveColor = Color.Gray      // Warna abu-abu untuk item tidak aktif
     Scaffold(
         topBar = {
             Row(
@@ -52,37 +42,6 @@ fun ReviewView() {
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold
                 )
-            }
-        },
-        bottomBar = {
-            // Bottom navigation bar
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White)
-                    .padding(vertical = 8.dp),
-                horizontalArrangement = Arrangement.SpaceAround,
-                verticalAlignment = Alignment.Top
-            ) {
-                items.forEachIndexed { index, item ->
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.padding(8.dp)
-                    ) {
-                        Icon(
-                            imageVector = icons[index],
-                            contentDescription = item,
-                            tint = if (selectedTab == item) activeColor else inactiveColor,
-                            modifier = Modifier.padding(bottom = 4.dp)
-                        )
-                        Text(
-                            text = item,
-                            fontSize = 12.sp,
-                            fontWeight = if (selectedTab == item) FontWeight.Bold else FontWeight.Normal,
-                            color = if (selectedTab == item) activeColor else inactiveColor
-                        )
-                    }
-                }
             }
         }
     ) { innerPadding ->

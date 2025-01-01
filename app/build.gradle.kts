@@ -64,6 +64,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation ("androidx.navigation:navigation-compose:2.7.2") // Versi terbaru Jetpack Navigation
+    implementation ("androidx.compose.material3:material3:1.1.1")   // Untuk Material3 jika belum ditambahkan
 
     // Testing libraries
     testImplementation(libs.junit)

@@ -49,37 +49,6 @@ fun WishlistView() {
                     fontWeight = FontWeight.Bold
                 )
             }
-        },
-                bottomBar = {
-            // Bottom navigation bar
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White)
-                    .padding(vertical = 8.dp),
-                horizontalArrangement = Arrangement.SpaceAround,
-                verticalAlignment = Alignment.Top
-            ) {
-                items.forEachIndexed { index, item ->
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.padding(8.dp)
-                    ) {
-                        Icon(
-                            imageVector = icons[index],
-                            contentDescription = item,
-                            tint = if (selectedTab == item) activeColor else inactiveColor,
-                            modifier = Modifier.padding(bottom = 4.dp)
-                        )
-                        Text(
-                            text = item,
-                            fontSize = 12.sp,
-                            fontWeight = if (selectedTab == item) FontWeight.Bold else FontWeight.Normal,
-                            color = if (selectedTab == item) activeColor else inactiveColor
-                        )
-                    }
-                }
-            }
         }
     ) { innerPadding ->
         Column(

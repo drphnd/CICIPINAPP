@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cicipinapp.R
+import com.example.cicipinapp.views.cards.RestoRecommendationCardView
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,7 +50,7 @@ fun RestoRecommendationView() {
                 .background(Color.White)
                 .padding(innerPadding)
         ) {
-//            Masukkin Resto Card Recommendation disini
+            RestoRecommendationCardView()
         }
     }
 }
