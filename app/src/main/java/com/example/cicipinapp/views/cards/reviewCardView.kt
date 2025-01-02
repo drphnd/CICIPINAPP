@@ -33,7 +33,7 @@ fun ReviewCard() {
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
             .fillMaxWidth().
-        background(Color.White),
+            background(Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
     ) {
         Row(
@@ -99,4 +99,3 @@ fun ReviewCard() {
 private fun reviewCardPreview() {
     ReviewCard()
 }
-

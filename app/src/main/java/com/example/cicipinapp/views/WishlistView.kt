@@ -20,14 +20,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.cicipinapp.R
-import com.example.cicipinapp.views.cards.WishlistCardView
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun WishlistView(navController: NavController) {
+fun WishlistView() {
     var selectedTab by remember { mutableStateOf("Wishlist") }
     val items = listOf("Home", "Wishlist", "Find Resto", "Review")
     val icons = listOf(
@@ -91,7 +88,7 @@ fun WishlistView(navController: NavController) {
                 .background(Color.White)
                 .padding(innerPadding)
         ) {
-            WishlistCardView()
+//            Masukkin Wishlist Card disini
         }
     }
 }
@@ -99,5 +96,5 @@ fun WishlistView(navController: NavController) {
 @Preview(showBackground = true)
 @Composable
 private fun WishlistPreview() {
-    WishlistView(navController = rememberNavController())
+    WishlistView()
 }
