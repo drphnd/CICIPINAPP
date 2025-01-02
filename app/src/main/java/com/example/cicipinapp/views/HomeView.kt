@@ -3,6 +3,7 @@ package com.example.cicipinapp.views
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,11 +25,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.cicipinapp.R
+import com.example.cicipinapp.navigation.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeView() {
+fun HomeView(navController: NavHostController) {
     var searchText by remember { mutableStateOf("") }
     var selectedTab by remember { mutableStateOf("Home") }
     val items = listOf("Home", "Wishlist", "Find Resto", "Review")
@@ -74,7 +78,6 @@ fun HomeView() {
             }
         }
     ) { innerPadding ->
-        // Content area
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -120,7 +123,11 @@ fun HomeView() {
                             modifier = Modifier
                                 .size(45.dp) // Ukuran lingkaran
                                 .clip(CircleShape) // Membuat gambar menjadi bulat
-                                .border(2.dp, Color.Red, CircleShape), // Opsional: menambahkan border merah
+                                .border(2.dp, Color.Red, CircleShape)
+                                .clickable {
+                                    navController.navigate(Screen.Setting.route)
+                                }
+                            , // Opsional: menambahkan border merah
                             contentScale = ContentScale.Crop // Memotong gambar agar sesuai dengan lingkaran
                         )
                     }
@@ -151,13 +158,46 @@ fun HomeView() {
                     ),
                     singleLine = true // Membatasi hanya satu baris
                 )
+
+//                FUSIONS
+
+                Row(
+                    modifier = Modifier
+                        .padding(13.dp)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween // Mengatur teks kiri dan kanan
+                ) {
+                    Text(
+                        "Recommendation",
+                        color = Color.DarkGray,
+                        fontSize = 15.sp
+                    )
+                    Text(
+                        "See all >",
+                        color = Color.DarkGray,
+                        fontSize = 15.sp,
+                        modifier = Modifier.clickable {
+                            navController.navigate(Screen.RestoRecommendation.route) // Navigate to RestoRecommendation
+                        }
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+//                Taruh Resto Card Recommendation disini
+
+
+
+
+
             }
 
             // Content for Fusion Foods or additional content here
 
 
             Spacer(modifier = Modifier.height(16.dp))
-            
+
+
         }
     }
 }
@@ -165,5 +205,5 @@ fun HomeView() {
 @Preview(showBackground = true)
 @Composable
 private fun WelcomePreview() {
-    HomeView()
+    HomeView(navController = rememberNavController())
 }
