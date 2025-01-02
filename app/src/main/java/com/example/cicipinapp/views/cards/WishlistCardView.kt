@@ -29,9 +29,12 @@ import androidx.compose.ui.unit.sp
 import com.example.cicipinapp.R
 
 @Composable
-fun RestoRecommendationCardView(){
+fun WishlistCardView(){
     Card(
-
+        shape = RoundedCornerShape(8.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
     ) {
         Column(
             modifier = Modifier
@@ -138,6 +141,6 @@ fun RestoRecommendationCardView(){
 
 @Preview(showBackground = true)
 @Composable
-    private fun RestoRecommendationCardPreview(){
-    RestoRecommendationCardView()
+private fun WishlistCardPreview(){
+    WishlistCardView()
 }
