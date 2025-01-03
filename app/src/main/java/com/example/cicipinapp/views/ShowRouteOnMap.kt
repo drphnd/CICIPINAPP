@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.cicipinapp.Retrofit.RetrofitClient
-import com.google.android.libraries.maps.MapView
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
@@ -20,7 +19,7 @@ import org.osmdroid.views.overlay.Polyline
 fun ShowRouteOnMap() {
     val context = LocalContext.current
     val mapView = remember {
-        MapView(context).apply {
+        org.osmdroid.views.MapView(context).apply {
             setTileSource(TileSourceFactory.MAPNIK)
             setMultiTouchControls(true)
         }
