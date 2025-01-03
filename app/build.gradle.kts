@@ -65,7 +65,9 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation ("androidx.navigation:navigation-compose:2.7.2") // Versi terbaru Jetpack Navigation
-    implementation ("androidx.compose.material3:material3:1.1.1")   // Untuk Material3 jika belum ditambahkan
+    implementation ("androidx.compose.material3:material3:1.1.1")
+    implementation(libs.volley)
+    implementation(libs.androidx.espresso.core)   // Untuk Material3 jika belum ditambahkan
 
     // Testing libraries
     testImplementation(libs.junit)
@@ -88,4 +90,6 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:4.10.0")
     implementation ("com.google.android.gms:play-services-location:18.0.0")
 
+    //buat coil
+    implementation("io.coil-kt:coil-compose:2.4.0")
 }
