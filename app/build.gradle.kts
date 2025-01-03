@@ -37,11 +37,22 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3" // Replace with the appropriate version
+    }
+
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
 
-    implementation ("androidx.navigation:navigation-compose:2.5.0")
+
+
 // Core AndroidX libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -54,8 +65,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation ("androidx.navigation:navigation-compose:2.7.2") // Versi terbaru Jetpack Navigation
-    implementation ("androidx.compose.material3:material3:1.1.1")
-    implementation(libs.maps)   // Untuk Material3 jika belum ditambahkan
+    implementation ("androidx.compose.material3:material3:1.1.1")   // Untuk Material3 jika belum ditambahkan
 
     // Testing libraries
     testImplementation(libs.junit)
@@ -77,11 +87,5 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:okhttp:4.10.0")
     implementation ("com.google.android.gms:play-services-location:18.0.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
-    implementation ("com.squareup.moshi:moshi:1.15.0")
-    implementation ("com.squareup.moshi:moshi-kotlin:1.15.0")
-    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
-
-    implementation ("androidx.compose.runtime:runtime-livedata:1.6.0-alpha01") // Check for the latest version
 
 }
