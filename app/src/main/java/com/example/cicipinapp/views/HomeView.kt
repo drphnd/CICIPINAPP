@@ -24,11 +24,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.cicipinapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeView() {
+fun HomeView(navController: NavHostController) {
     var searchText by remember { mutableStateOf("") }
     var selectedTab by remember { mutableStateOf("Home") }
     val items = listOf("Home", "Wishlist", "Find Resto", "Review")
@@ -165,5 +167,5 @@ fun HomeView() {
 @Preview(showBackground = true)
 @Composable
 private fun WelcomePreview() {
-    HomeView()
+    HomeView(navController = rememberNavController())
 }

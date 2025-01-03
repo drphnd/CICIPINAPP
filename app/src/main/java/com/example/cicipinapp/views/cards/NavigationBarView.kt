@@ -74,8 +74,8 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         modifier = modifier
     ) {
         composable("Home") { HomeView() }
-        composable("Wishlist") { WishlistView() }
-        composable("Restaurant") { RestaurantView() }
-        composable("Review") { ReviewView() }
+        composable("Wishlist") { WishlistView(navController) }
+        composable("Restaurant") { RestaurantView(navController) }
+        composable("Review") { ReviewView(navController) }
     }
 }
