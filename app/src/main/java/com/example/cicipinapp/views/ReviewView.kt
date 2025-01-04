@@ -23,11 +23,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.cicipinapp.R
 import com.example.cicipinapp.views.cards.ReviewCard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+<<<<<<< Updated upstream
 fun ReviewView() {
     var selectedTab by remember { mutableStateOf("Review") }
     val items = listOf("Home", "Wishlist", "Find Resto", "Review")
@@ -39,6 +42,9 @@ fun ReviewView() {
     )
     val activeColor = Color(0xFFFFC107) // Warna kuning untuk item aktif
     val inactiveColor = Color.Gray      // Warna abu-abu untuk item tidak aktif
+=======
+fun ReviewView(navController: NavController) {
+>>>>>>> Stashed changes
     Scaffold(
         topBar = {
             Row(
@@ -104,5 +110,5 @@ fun ReviewView() {
 @Preview(showBackground = true)
 @Composable
 private fun ReviewPreview() {
-    ReviewView()
+    ReviewView(navController = rememberNavController())
 }

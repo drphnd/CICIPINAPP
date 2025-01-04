@@ -2,12 +2,9 @@ package com.example.cicipinapp.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -21,13 +18,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.cicipinapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingView(navController: NavController) {
+fun SettingView(navController: NavHostController) {
     Scaffold(
         topBar = {
             Row(
@@ -38,14 +35,10 @@ fun SettingView(navController: NavController) {
             ) {
                 Image(
                     painter = painterResource(R.drawable.baseline_arrow_back_ios_24),
-                    contentDescription = "Back Icon",
+                    contentDescription = "Back Arrow",
                     modifier = Modifier
-                        .size(24.dp) // Ukuran ikon
-                        .clip(CircleShape) // Membuat gambar menjadi bulat (opsional untuk ikon back)
-                        .clickable {
-                            // Logika Back
-                            navController.popBackStack()
-                        }
+                        .size(24.dp)
+                        .clip(CircleShape)
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
@@ -91,189 +84,12 @@ fun SettingView(navController: NavController) {
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            Column(
-                modifier = Modifier
-                    .padding(5.dp)
-                    .clickable {
-
-                    }
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 12.dp, horizontal = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.baseline_account_circle_24),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Text(
-                        text = "Profile Setting",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        modifier = Modifier
-                            .weight(1f),
-                        color = Color.Black
-                    )
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowRight,
-                        contentDescription = null,
-                        tint = Color.Black
-                    )
-                }
-                Divider(
-                    color = Color.Gray,
-                    thickness = 0.3.dp,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                )
-            }
-
-            Column(
-                modifier = Modifier
-                    .padding(5.dp)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 12.dp, horizontal = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.baseline_add_business_24),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Text(
-                        text = "Add Restaurant",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        modifier = Modifier.weight(1f),
-                        color = Color.Black
-                    )
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowRight,
-                        contentDescription = null,
-                        tint = Color.Black
-                    )
-                }
-                Divider(
-                    color = Color.Gray,
-                    thickness = 0.3.dp,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                )
-            }
-
-            Column(
-                modifier = Modifier
-                    .padding(5.dp)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 12.dp, horizontal = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.baseline_sports_basketball_24),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Text(
-                        text = "Pusat Bantuan",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        modifier = Modifier.weight(1f),
-                        color = Color.Black
-                    )
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowRight,
-                        contentDescription = null,
-                        tint = Color.Black
-                    )
-                }
-                Divider(
-                    color = Color.Gray,
-                    thickness = 0.3.dp,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                )
-            }
-
-            Column(
-                modifier = Modifier
-                    .padding(5.dp)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 12.dp, horizontal = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.baseline_logout_24),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Text(
-                        text = "Log Out",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        modifier = Modifier.weight(1f),
-                        color = Color.Black
-                    )
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowRight,
-                        contentDescription = null,
-                        tint = Color.Black
-                    )
-                }
-                Divider(
-                    color = Color.Gray,
-                    thickness = 0.3.dp,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                )
-            }
-
-            Column(
-                modifier = Modifier
-                    .padding(5.dp)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 12.dp, horizontal = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.baseline_delete_24),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Text(
-                        text = "Delete Account",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        modifier = Modifier.weight(1f),
-                        color = Color.Black
-                    )
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowRight,
-                        contentDescription = null,
-                        tint = Color.Black
-                    )
-                }
-                Divider(
-                    color = Color.Gray,
-                    thickness = 0.3.dp,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                )
-            }
+            // Menu List
+            MenuItem(icon = R.drawable.baseline_account_circle_24, title = "Profile Setting")
+            MenuItem(icon = R.drawable.baseline_add_business_24, title = "Add Restaurant")
+            MenuItem(icon = R.drawable.baseline_sports_basketball_24, title = "Pusat Bantuan")
+            MenuItem(icon = R.drawable.baseline_logout_24, title = "Log Out")
+            MenuItem(icon = R.drawable.baseline_delete_24, title = "Delete Account")
         }
     }
 }
