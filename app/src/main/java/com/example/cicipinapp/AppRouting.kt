@@ -17,6 +17,4 @@ fun AppRouting() {
     ) { innerPadding ->
         NavigationGraph(navController = navController, modifier = Modifier.padding(innerPadding))
     }
-
-
 }

@@ -27,6 +27,7 @@ fun AddMenu() {
     Scaffold(
         topBar = {
             Row(
+                verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(Color.White)

@@ -89,7 +89,13 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:okhttp:4.10.0")
     implementation ("com.google.android.gms:play-services-location:18.0.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    implementation ("com.squareup.moshi:moshi:1.15.0")
+    implementation ("com.squareup.moshi:moshi-kotlin:1.15.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     //buat coil
     implementation("io.coil-kt:coil-compose:2.4.0")
+
+    implementation ("androidx.compose.runtime:runtime-livedata:1.6.0-alpha01") // Check for the latest version
 }
